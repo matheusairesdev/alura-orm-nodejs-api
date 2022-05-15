@@ -1,7 +1,7 @@
 {
   "name": "alura-orm-nodejs-api",
   "author": "Majov",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ORM com NodeJS: API com Sequelize e Postgres",
   "main": "index.js",
   "scripts": {
