@@ -1,3 +1,5 @@
+const log4js = require('../tools/log4js');
+const logger = log4js.getLogger('users');
 const database = require('../database/models');
 
 class Services {
@@ -23,6 +25,25 @@ class Services {
             }
         }
     }
+
+    async create(data){
+        logger.debug(data)
+        try {
+            const result = await database[this.nomeDoModelo].create(data);
+            return {
+                success:true,
+                data:result
+            }
+        } catch (error) {
+            return {
+                success:false,
+                message:error.message,
+                error:Number(error.parent.code)
+            }
+        }
+    }
+
+
 }
 
 module.exports = Services;

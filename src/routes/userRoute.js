@@ -21,5 +21,21 @@ router.get('/users', async (req, res) =>{
 
     }
 })
+router.post('/user', async (req, res) =>{
+
+    const users = await UserController.create(req.body);
+
+    if(users.success){
+        res.status(200).json(users.data);
+    }else{
+        logger.error(users.message);
+        if(users.error === 42703){
+            res.status(406).json(users)
+        }else{
+            res.status(500).json(users);
+        };
+
+    }
+})
 
 module.exports = router

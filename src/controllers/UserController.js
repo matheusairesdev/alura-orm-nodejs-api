@@ -12,6 +12,10 @@ class UserController {
         logger.trace("listUsers");
         return await userServices.list(params);
     }
+    static async create(data){
+        logger.trace("createUser");
+        return await userServices.create(data);
+    }
 }
 
 module.exports = UserController

@@ -5,6 +5,7 @@ const logger = log4js.getLogger('app');
 
 
 const app = express();
+app.use(express.urlencoded({extended: true}))
 
 routes(app);
 
